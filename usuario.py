@@ -15,6 +15,8 @@ class Usuario(object):
 
     def login(self,usuario,contra):
         select=("SELECT * FROM usuario WHERE correo=%s AND password=%s")
+        print(usuario)
+        print(contra)
         h=hashlib.new('sha256',bytes(contra,'utf-8'))
         h=h.hexdigest()
         self.cursor.execute(select,(usuario,h))
